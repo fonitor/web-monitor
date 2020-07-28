@@ -5,6 +5,7 @@ import jsLog from './log/jsLog'
 import rescourceLog from './log/rescourceLog'
 import httpLog from './log/httpLog'
 import Queue from './queue'
+import Page from './log/page'
 
 let util = null
 
@@ -56,7 +57,8 @@ export default class Monitor {
         rescourceLog.getInstance().recordResourceError()
         // http 请求监控
         httpLog.getInstance().recordHttpError()
-       
+        // 统计页面性能
+        Page.getInstance().pagePerformance()
 
     }
 

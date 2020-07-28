@@ -61,7 +61,7 @@ export default class jsLog {
             let errorStack = errorObj ? errorObj.stack : null
             siftAndMakeUpMessage(errorMsg, url, lineNumber, columnNumber, errorStack)
         }
-        
+
         window.onunhandledrejection = (event) => {
             /** @type {string} */
             let errorMessage = ""
@@ -88,6 +88,5 @@ export default class jsLog {
         obj.browserInfo = ''
         return obj
     }
-
 
 }
