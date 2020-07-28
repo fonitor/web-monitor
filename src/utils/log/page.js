@@ -23,6 +23,20 @@ export default class Page {
         return Page.instance
     }
 
+    /**
+     * https://blog.csdn.net/lovenjoe/article/details/80260658
+     * DNS查询耗时 ：domainLookupEnd - domainLookupStart
+     * TCP链接耗时 ：connectEnd - connectStart
+     * request请求耗时 ：responseEnd - responseStart
+     * 解析dom树耗时 ： domComplete- domInteractive
+     * 白屏时间 ：responseStart - navigationStart
+     * domready时间 ：domContentLoadedEventEnd - navigationStart
+     * onload时间 ：loadEventEnd - navigationStart
+     * 相关资料
+     * https://segmentfault.com/a/1190000004010453
+     * https://github.com/fredshare/blog/issues/5
+     * https://javascript.ruanyifeng.com/bom/performance.html#toc5
+     */
     pagePerformance() {
         window.onload = () => {
             let performance = window.performance
@@ -36,12 +50,12 @@ export default class Page {
             let perf = this._objectSpread({}, times, {
                 url: "".concat(window.location.host).concat(window.location.pathname)
             })
+            // 页面耗时
             console.log(perf)
-
-            // perf
-            // log('perf', 20001, _objectSpread({}, times, {
-            //     url: "".concat(window.location.host).concat(window.location.pathname)
-            // }));
+            // 资源耗时
+            console.log(performance.getEntries())
+            // 浏览器内存情况 usedJSHeapSize表示所有被使用的js堆栈内存；totalJSHeapSize表示当前js堆栈内存总大小，这表示usedJSHeapSize不能大于totalJSHeapSize，如果大于，有可能出现了内存泄漏。
+            console.log(performance.memory)
         }
     }
 
