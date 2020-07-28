@@ -13,6 +13,8 @@ Vue.config.productionTip = false
 
 import { getConfig } from './utils/api/logApi'
 
+Vue.config.performance = true
+
 // setTimeout(() => {
 //   getConfig()
 // }, 1000)
