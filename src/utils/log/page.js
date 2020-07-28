@@ -51,11 +51,11 @@ export default class Page {
                 url: "".concat(window.location.host).concat(window.location.pathname)
             })
             // 页面耗时
-            console.log(perf)
+            // console.log(perf)
             // 资源耗时
-            console.log(performance.getEntries())
+            // console.log(performance.getEntries())
             // 浏览器内存情况 usedJSHeapSize表示所有被使用的js堆栈内存；totalJSHeapSize表示当前js堆栈内存总大小，这表示usedJSHeapSize不能大于totalJSHeapSize，如果大于，有可能出现了内存泄漏。
-            console.log(performance.memory)
+            // console.log(performance.memory)
         }
     }
 
