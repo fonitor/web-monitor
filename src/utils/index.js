@@ -6,6 +6,7 @@ import rescourceLog from './log/rescourceLog'
 import httpLog from './log/httpLog'
 import Queue from './queue'
 import Page from './log/page'
+import ClickLog from './log/mvLog'
 
 let util = null
 
@@ -59,6 +60,8 @@ export default class Monitor {
         httpLog.getInstance().recordHttpError()
         // 统计页面性能
         Page.getInstance().pagePerformance()
+        // 点击
+        ClickLog.getInstance().clickLog()
 
     }
 
