@@ -32,10 +32,18 @@ export default class ClickLog {
      */
     clickLog() {
         let OFFLINE_MILL = 15 * 60 * 1000 // 15分钟不操作认为不在线
-        var SEND_MILL = 5 * 1000 // 每5s打点一次
+        let SEND_MILL = 5 * 1000 // 每5s打点一次
 
         window.addEventListener('click', (e) => {
-            var now = Date.now()
+            let now = Date.now()
+            let  duration = now - lastTime
+            let lastTime = null
+            if (duration > OFFLINE_MILL) {
+                lastTime = Date.now()
+            } else if (duration > SEND_MILL) { // 用户在线时长
+                lastTime = Date.now()
+            }
+            
         })
     }
 
