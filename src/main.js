@@ -26,9 +26,9 @@ Vue.config.performance = true
 // }, 3000)
 
 // js 报错监控测试
-// setTimeout(() => {
-//   console.log(ss)
-// }, 3000)
+setTimeout(() => {
+  console.log(ss)
+}, 3000)
 
 // setTimeout(() => {
 //   fetch('http://www.guaishou.com/applet/text/charge')

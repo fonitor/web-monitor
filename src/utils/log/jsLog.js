@@ -1,7 +1,9 @@
 import Util from "../util"
 import * as error from '../config/index'
+import Queue from "../queue"
 
 const util = Util.getInstance()
+const queue = Queue.getInstance('web')
 
 export default class jsLog {
 
@@ -34,7 +36,8 @@ export default class jsLog {
                 errorType = errorStackStr.split(": ")[0].replace('"', "");
             }
             let javaScriptErrorInfo = this.javaScriptErrorInfo(error.JS_ERROR, errorType + ": " + errorMsg, errorObj)
-            console.log(javaScriptErrorInfo)
+            // 进入队列
+            queue.pushToQueue(javaScriptErrorInfo)
         }
 
         let jsMonitorStarted;
