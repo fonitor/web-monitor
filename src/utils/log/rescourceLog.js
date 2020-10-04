@@ -1,7 +1,9 @@
 import Util from "../util"
 import * as error from '../config/index'
+import Queue from "../queue"
 
 const util = Util.getInstance()
+const queue = Queue.getInstance('web')
 
 export default class rescourceLog {
     constructor() {
@@ -27,6 +29,8 @@ export default class rescourceLog {
      */
     recordResourceError() {
         window.addEventListener('error', (e) => {
+            console.log('资源错误')
+            console.log(e)
             let typeName = e.target.localName
             let sourceUrl = ""
             switch (typeName) {
@@ -46,7 +50,7 @@ export default class rescourceLog {
             if (sourceUrl) sourceUrl = util.b64EncodeUnicode(encodeURIComponent(sourceUrl))
 
             let resoureErrorInfo = this.resourceErrorInfo(error.RESOURCE_LOAD, sourceUrl, typeName)
-            console.log(resoureErrorInfo)
+            queue.pushToQueue(resoureErrorInfo)
         }, true);
     }
 
@@ -59,9 +63,10 @@ export default class rescourceLog {
     resourceErrorInfo(uploadType, sourceUrl, typeName) {
         let obj = JSON.parse(JSON.stringify(util.getCommonProperty()))
         obj.uploadType = uploadType
-        obj.errorUrl = sourceUrl
-        obj.errorName = typeName;
+        obj.sourceUrl = sourceUrl
+        obj.elementType = typeName;
         obj.browserInfo = '';
+        obj.status = ''
         return obj
     }
 }
