@@ -29,8 +29,6 @@ export default class rescourceLog {
      */
     recordResourceError() {
         window.addEventListener('error', (e) => {
-            console.log('资源错误')
-            console.log(e)
             let typeName = e.target.localName
             let sourceUrl = ""
             switch (typeName) {
