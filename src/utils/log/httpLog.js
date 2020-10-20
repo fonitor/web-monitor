@@ -2,9 +2,12 @@
 
 import Util from "../util"
 import * as error from '../config/index'
+import Queue from "../queue"
 
 const util = Util.getInstance(),
     cache = []
+
+const queue = Queue.getInstance('web')
 
 export default class httpLog {
     constructor() {
@@ -153,11 +156,15 @@ export default class httpLog {
             loadTime = currentTime - cache[i].timeStamp;
 
         if (!url) return
-        let httpLogInfoStart = this.httpLogInfo(error.HTTP_LOG, simpleUrl, status, statusText, "发起请求", responseText, cache[i].timeStamp, 0)
-        console.log(httpLogInfoStart)
+        // let httpLogInfoStart = this.httpLogInfo(error.HTTP_LOG, simpleUrl, status, statusText, "发起请求", responseText, cache[i].timeStamp, 0)
+        // console.log(url)
+        // console.log(httpLogInfoStart)
         // httpLogInfoStart.handleLogInfo(error.HTTP_LOG, httpLogInfoStart)
         let httpLogInfoEnd = this.httpLogInfo(error.HTTP_LOG, simpleUrl, status, statusText, "请求返回", responseText, currentTime, loadTime)
-        console.log(httpLogInfoEnd)
+        // console.log(httpLogInfoEnd)
+        if (url.indexOf('api/save/log') === -1) {
+            queue.pushToQueue(httpLogInfoEnd)
+        }
         // httpLogInfoEnd.handleLogInfo(error.HTTP_LOG, httpLogInfoEnd)
         // 当前请求成功后就，就将该对象的uploadFlag设置为true, 代表已经上传了
         cache[i].uploadFlag = true
