@@ -8,6 +8,8 @@ import Queue from './queue'
 import Page from './log/page'
 import ClickLog from './log/mvLog'
 
+import './navigations/navigator-events'
+
 let util = null
 
 export default class Monitor {
