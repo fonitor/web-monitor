@@ -6,7 +6,8 @@ import store from './store'
 import Monitor from './utils/index'
 /* eslint-disable */
 let monitor = new Monitor({
-
+  monitorBaseUrl: "http://localhost:9001",
+  monitorTimeout: 5000
 })
 
 Vue.config.productionTip = false
