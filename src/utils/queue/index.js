@@ -135,7 +135,7 @@ export default class Queue {
      */
     handleLog(e) {
         saveLog(e).then(res => {
-            console.log(res)
+            // console.log(res)
         })
     }
 
