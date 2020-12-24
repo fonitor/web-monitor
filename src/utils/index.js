@@ -24,16 +24,20 @@ export default class Monitor {
 
         let utilConfig = {
             monitorUser: this.options.monitorUser || {},
-            WEB_MONITOR_ID: this.options.WEB_MONITOR_ID || ""
+            WEB_MONITOR_ID: this.options.WEB_MONITOR_ID || "",
         }
 
         let queueConfig = {
             synRequestNum: this.options.synRequestNum || null
         }
+        console.log(utilConfig)
+        
         util = Util.getInstance(utilConfig)
+        util.WEB_BASE_URL = options.monitorBaseUrl || ""
+        console.log(util)
         Queue.getInstance('web', queueConfig)
 
-        window.localStorage.setItem('monitorBaseUrl', options.monitorBaseUrl || "")
+        // window.localStorage.setItem('monitorBaseUrl', options.monitorBaseUrl || "")
         window.localStorage.setItem('monitorTimeout', options.monitorTimeout || 5000)
 
         this.init()

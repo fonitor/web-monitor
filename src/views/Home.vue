@@ -18,7 +18,7 @@ export default {
     HelloWorld
   },
   mounted() {
-    console.log(document.getElementsByTagName('a'))
+    // console.log(document.getElementsByTagName('a'))
     let aTags = document.getElementsByTagName('a')
     aTags.forEach(item => {
       item.addEventListener('click', (event) => {
