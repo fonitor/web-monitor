@@ -34,7 +34,6 @@ export default class Monitor {
         
         util = Util.getInstance(utilConfig)
         util.WEB_BASE_URL = options.monitorBaseUrl || ""
-        console.log(util)
         Queue.getInstance('web', queueConfig)
 
         // window.localStorage.setItem('monitorBaseUrl', options.monitorBaseUrl || "")
