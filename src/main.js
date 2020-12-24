@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import Monitor from './utils/index'
+import Monitor from 'fonitor-web'
 /* eslint-disable */
 let monitor = new Monitor({
   monitorBaseUrl: "http://localhost:9001",
@@ -27,9 +27,9 @@ Vue.config.performance = true
 // }, 3000)
 
 // js 报错监控测试
-// setTimeout(() => {
-//   console.log(ss)
-// }, 3000)
+setTimeout(() => {
+  console.log(ss)
+}, 3000)
 
 // setTimeout(() => {
 //   fetch('http://www.guaishou.com/applet/text/charge')

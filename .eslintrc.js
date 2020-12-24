@@ -17,6 +17,9 @@ module.exports = {
     'no-prototype-builtins': 'off',
     'no-cond-assign': 'off',
     'no-useless-escape': 'off',
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'no-empty': 'off',
+    'require-yield': 'off',
+    'no-empty': 'off'
   }
 }
