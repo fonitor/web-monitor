@@ -3,12 +3,19 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import Monitor from 'fonitor-web'
-/* eslint-disable */
-let monitor = new Monitor({
-  monitorBaseUrl: "http://localhost:9001",
-  monitorTimeout: 5000
+import { webMonitor } from 'monitor-sdk'
+
+webMonitor.init({
+  app: 'wuc',
+  baseUrl: 'http://localhost:9001'
 })
+
+// import Monitor from 'fonitor-web'
+// /* eslint-disable */
+// let monitor = new Monitor({
+//   monitorBaseUrl: "http://localhost:9001",
+//   monitorTimeout: 5000
+// })
 
 Vue.config.productionTip = false
 
@@ -27,9 +34,9 @@ Vue.config.performance = true
 // }, 3000)
 
 // js 报错监控测试
-setTimeout(() => {
-  console.log(ss)
-}, 3000)
+// setTimeout(() => {
+//   console.log(ss)
+// }, 3000)
 
 // setTimeout(() => {
 //   fetch('http://www.guaishou.com/applet/text/charge')
