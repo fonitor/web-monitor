@@ -19,7 +19,7 @@ webMonitor.init({
 
 Vue.config.productionTip = false
 
-import { getConfig } from './utils/api/logApi'
+import { saveLog } from './utils/api/logApi'
 
 Vue.config.performance = true
 
@@ -30,7 +30,9 @@ Vue.config.performance = true
 //   getConfig()
 // }, 2000)
 // setTimeout(() => {
-//   getConfig()
+//   saveLog().then(res => {
+//     console.log(res)
+//   })
 // }, 3000)
 
 // js 报错监控测试
@@ -39,12 +41,10 @@ Vue.config.performance = true
 // }, 3000)
 
 // setTimeout(() => {
-//   fetch('http://www.guaishou.com/applet/text/charge')
-//     .then(function (response) {
+//   fetch('http://www.guaishou.com/applet/text/charge').then(function (response) {
 //       return response.json();
-//     })
-//     .then(function (myJson) {
-//       console.log(myJson);
+//     }).then(function (myJson) {
+//       // console.log(myJson);
 //     });
 // }, 3000)
 

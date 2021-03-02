@@ -8,7 +8,7 @@ class Log extends HttpRequest {
       method: "POST",
       data
     }
-    return this.request(options, Util.getInstance().WEB_BASE_URL)
+    return this.request(options, "http://localhost:9000")
   }
 }
 

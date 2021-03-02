@@ -5,6 +5,7 @@
     <a href="https://www.baidu.com">百度http://www.baidu.com</a>
     <a href="https://www.baidu1.com">百度http://www.baidu.com</a>
     <a href="https://www.baidu2.com">百度http://www.baidu.com</a>
+    <div id="ceshi">测试</div>
   </div>
 </template>
 
@@ -22,16 +23,23 @@ export default {
     let aTags = document.getElementsByTagName('a')
     aTags.forEach(item => {
       item.addEventListener('click', (event) => {
-        event.stopPropagation()
-        event.preventDefault()
-        console.log(event)
-        console.log('测试')
-        console.log(event.srcElement.href)
+        // event.stopPropagation()
+        // event.preventDefault()
+        // console.log(event)
+        // console.log('测试')
+        // console.log(event.srcElement.href)
       })
     });
+
+    document.getElementById('ceshi').addEventListener('click', (e) => {
+      console.log('测试3333')
+    })
     
   },
   methods: {
+    ceshi() {
+      console.log(1111)
+    }
   }
 }
 </script>
