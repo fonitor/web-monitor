@@ -5,6 +5,7 @@ import store from './store'
 
 import { webMonitor } from 'monitor-sdk'
 
+
 webMonitor.init({
   app: 'wuc',
   baseUrl: 'http://localhost:9001'
